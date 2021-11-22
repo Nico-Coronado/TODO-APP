@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}{% load static %}
+
+{% block title %}
+    Login - TodoApp
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% include 'base/header.html' %}
+
+{% if messages %}
+    <div class="alert alert-success" style="text-align: center;">
+        {% for m in messages %}
+            {{m}}
+        {% endfor %}
+    </div>
+{% endif %}
+    
+{% if form.errors %}
+<div class="alert alert-danger">
+    <strong>{{form.errors}}</strong> 
+</div>
+{% endif %}
+<div style="text-align: left; margin: 0 auto; max-width: 50%;">
+    <form action="" method="post">
+        {% csrf_token %}
+            {% for field in form %}
+            <div class="mb-3 mt-3">
+                <label class="form-label" >{{field.label}}</label>
+                {{field}}
+            </div>
+        {% endfor %}
+        <div style="padding-top: 10px;"></div>
+        <button type="submit" class="btn btn-outline-primary">Iniciar sesion</button>
+    </form>
+{% endblock content %}
+</div>

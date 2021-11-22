@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}{% load static %}
+
+{% block title %}
+    Registro - TodoApp
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% include 'base/header.html' %}
+{% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>{{form.errors}}</strong> 
+    </div>
+{% endif %}
+    <div style="text-align: left; margin: 0 auto; max-width: 50%;">
+        <form action="" method="post">
+            {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-3 mt-3">
+                    <label class="form-label" >{{field.label}}</label>
+                    {{field}}
+                </div>
+            {% endfor %}
+            <div style="padding-top: 10px;"></div>
+            <button type="submit" class="btn btn-outline-primary">Registrarse</button>
+        </form>
+    </div>
+    <div style="padding-top: 10px;"></div>
+    <div class="alert alert-primary" style="text-align: center;">
+        <strong>IMPORTANTE!</strong> debe estar registrado para ver y crear sus tareas
+    </div>
+</div>
+{% endblock content %}
+    
+    

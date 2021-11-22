@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}{% load static %}
+
+{% block title %}
+    Lista de tareas - TodoApp
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% include 'base/header.html' %}   
+<div style="text-align: left; margin: 0 auto; max-width: 50%;">
+    <h4>Estas seguro de eliminar la tarea <strong>{{object.name}}</strong></h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="padding-top: 10px;"></div>
+        <button type="submit" class="btn btn-danger">Eliminar tarea</button>
+    </form>
+</div>    
+{% endblock %}
+
+</div>

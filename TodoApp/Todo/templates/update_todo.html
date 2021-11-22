@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}{% load static %}
+
+{% block title %}
+    Lista de tareas - TodoApp
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% include 'base/header.html' %}   
+<div style="text-align: left; margin: 0 auto; max-width: 50%;">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3 mt-3">
+            <label class="form-label" >{{field.label}}</label>
+            {{field}}
+        </div>
+        {% endfor %}
+        <div style="padding-top: 10px;"></div>
+        <button type="submit" class="btn btn-warning">Actualizar tarea</button>
+    </form>
+</div>    
+{% endblock %}
+
+</div>

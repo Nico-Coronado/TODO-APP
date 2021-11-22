@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-light ">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'todo_app:todo-list' %}">Lista de tareas</a>
+          </li>
+        </ul>
+        
+        {% if user.username %}
+          <h4>usuario: <strong>{{user.username}}</strong></h4>
+          <div style="padding: 5px;"></div>
+          <a href="{% url 'accounts_app:logout' %}" class="btn btn-outline-danger">Cerrar sesion</a>
+        {% else %}
+          <a href="{% url 'accounts_app:sign-up' %}" class="btn btn-outline-primary">Registrarse</a>
+          <div style="padding: 5px;"></div>
+          <a href="{% url 'accounts_app:login' %}" class="btn btn-outline-primary">Iniciar sesion</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <hr>
